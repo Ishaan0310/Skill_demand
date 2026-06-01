@@ -1,9 +1,3 @@
--- Skill Demand Intelligence Tracker — SQL Queries
--- Run in psql:  psql -d skill_tracker
--- Or paste into pgAdmin4 Query Tool
--- Or run the whole file:  \i queries.sql
-
-
 -- ──────────────────────────────────────────────────────────────────────────────
 -- 1. Top 15 most in-demand skills across all postings
 -- ──────────────────────────────────────────────────────────────────────────────
