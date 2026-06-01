@@ -1,16 +1,5 @@
 """
-load_to_postgres.py  —  Skill Tracker (Project 2)
----------------------------------------------------
-Reads gsearch_jobs.csv directly from raw_data/ and loads it into PostgreSQL.
-This file has been updated to match the actual column names in the Kaggle dataset.
-
-Actual CSV columns used:
-  title               → job_title (also used to infer experience level)
-  company_name        → company
-  location            → city  (parsed from "City, State" format)
-  schedule_type       → employment_type (Full-time, Part-time, etc.)
-  salary_standardized → salary_usd (yearly USD, nullable)
-  description_tokens  → raw_skills (Python list of skill keywords from JD)
+load_to_postgres.py  —  Skill Tracker 
 
 Run: python3 load_to_postgres.py
 """
@@ -35,9 +24,6 @@ DB_CONFIG = {
 CSV_FILE = "./raw_data/gsearch_jobs.csv"
 # ───────────────────────────────────────────────────────────────────────────────
 
-
-# Only tokens from description_tokens that match a known skill are stored.
-# This filters out non-skill words like "communication", "teamwork", "detail".
 KNOWN_SKILLS = {
     # Languages
     "python", "r", "sql", "java", "scala", "julia", "c++",
