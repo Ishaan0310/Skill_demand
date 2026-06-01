@@ -1,13 +1,5 @@
 """
-fetch_data.py  —  Skill Tracker (Project 2)
---------------------------------------------
-Downloads the Luke Barousse data analyst job postings dataset (~785K rows),
-parses the skills JSON, infers experience level from job titles,
-cleans salary and location, and writes job_postings.csv
-for load_to_postgres.py to consume.
-
-Dataset: https://www.kaggle.com/datasets/lukebarousse/data-analyst-job-postings-google-search
-         Real job postings scraped from Google Search — widely used for DA job analysis
+fetch_data.py  —  Skill Tracker 
 
 Run: python3 fetch_data.py
 """
@@ -24,21 +16,21 @@ import kaggle
 # ── CONFIG ────────────────────────────────────────────────────────────────────
 # Swap datasets: change DATASET_ID + the column-name variables below.
 # The processing functions (parse_skills, extract_experience, etc.) may also
-# need updating depending on how the new dataset structures its data.
+# will be needing update depending on how the new dataset structures its data.
 
 DATASET_ID       = "lukebarousse/data-analyst-job-postings-google-search"
 DOWNLOAD_DIR     = "./raw_data"
 OUTPUT_CSV       = "job_postings.csv"
 
 # Column names in the downloaded CSV
-COL_TITLE_SHORT  = "job_title_short"    # simplified role: Data Analyst, Data Scientist …
-COL_TITLE_FULL   = "job_title"          # full title with seniority keywords
+COL_TITLE_SHORT  = "job_title_short"    
+COL_TITLE_FULL   = "job_title"          
 COL_COMPANY      = "company_name"
 COL_LOCATION     = "job_location"       # "City, State" or "Anywhere"
 COL_COUNTRY      = "job_country"
 COL_SKILLS       = "job_skills"         # stored as Python list literal: ['python', 'sql']
-COL_SALARY       = "salary_year_avg"    # USD per year, often null
-COL_SCHEDULE     = "job_schedule_type"  # Full-time, Part-time, Contractor
+COL_SALARY       = "salary_year_avg"    
+COL_SCHEDULE     = "job_schedule_type"  #
 
 # rows with no skills listed aren't useful for analysis — always drop them
 DROP_ROWS_NO_SKILLS = True
